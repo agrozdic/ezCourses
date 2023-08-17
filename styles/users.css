@@ -1,0 +1,29 @@
+.card-img-top{
+    border-radius: 50%;
+    width: 33%;
+    margin: 10px 10px 0px auto;
+}
+
+@media (max-width: 992px) {
+    .card-img-top{
+        border-radius: 50%;
+        width: 33%;
+        margin: 10px 10px 0px auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-img-top{
+        border-radius: 50%;
+        width: 33%;
+        margin: 10px 10px 0px auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-img-top{
+        border-radius: 50%;
+        width: 33%;
+        margin: 10px 10px 0px auto;
+    }
+  }

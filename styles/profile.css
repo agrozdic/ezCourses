@@ -1,0 +1,16 @@
+.text-vert-center{
+    display: flex;
+    align-items: center;
+}
+
+.btn-toolbar{
+    justify-content: center;
+}
+
+.row{
+    margin: 0 auto;
+}
+
+.table-overflow{
+    overflow-x: auto;
+}

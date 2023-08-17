@@ -1,0 +1,18 @@
+.welcome hr{
+    border-top: 2px solid #B4B4B4;
+    width: 70%;
+    margin: 0.3rem auto 1rem auto;
+  }
+
+.table{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.table img{
+    width: 50px;
+}
+
+.table td{
+    vertical-align: middle;
+}

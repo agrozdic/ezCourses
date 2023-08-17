@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+		<script src="../javascript/edit.js"></script>
+		<script src="../javascript/login.js"></script>
+		<link rel="stylesheet" href="../styles/main.css">
+		<link rel="stylesheet" href="../styles/edit.css">
+		<title>ezCourses - Edit a Course</title>
+		<link rel="icon" href="../images/icon.png">
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-md sticky-top navbar-dark" id="navbar" style="background-color: #262626;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img id="logo" src="../images/logoW.png">
+				</a>
+				<button class="navbar-toggler" id="togglerButton" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="../index.html">Home</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="./courses.html">Courses</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./users.html">Users</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-3" href="./cart.html">Cart</a>
+						</li>
+						<li class="nav-item" id="log-user">
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Sign In -->
+		<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-center">
+					<div class="container-fluid modal-center">
+						<form class="form-signin" autocomplete="off">
+							<img class="img-fluid mb-4" src="../images/logoB.png">
+							<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+							<label for="inputUserSignIn" class="sr-only">Username</label>
+							<input type="text" id="inputUserSignIn" class="form-control mb-2" placeholder="Username">
+							<label for="inputPasswordSignIn" class="sr-only">Password</label>
+							<input type="password" id="inputPasswordSignIn" class="form-control mb-2" placeholder="Password">
+							<div class="checkbox mb-3">
+								<label>
+									<input type="checkbox" value="remember-me"> Remember me
+								</label>
+							</div>
+							<p style="text-align: left; color: red;" id="alert-p"></p>
+							<button class="btn btn-lg btn-dark btn-block" type="button" id="sing-in-btn">Sign in</button>
+							<p class="mt-5 text-muted">&copy; ezCourses.com 2021</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sign Up -->
+		<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-center">
+					<div class="container-fluid modal-center">
+						<form class="form-signup" autocomplete="off">
+							<img class="img-fluid mb-4" src="../images/logoB.png">
+							<h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+							<label for="inputNameSignUp" class="sr-only">Name</label>
+							<input type="text" id="inputNameSignUp" class="form-control mb-2" placeholder="Name">
+							<label for="inputUserSignUp" class="sr-only">User</label>
+							<input type="text" id="inputUserSignUp" class="form-control mb-2" placeholder="Username">
+							<label for="inputEmail" class="sr-only">Email</label>
+							<input type="email" id="inputEmailSignUp" class="form-control mb-2" placeholder="E-mail">
+							<label for="inputPassword" class="sr-only">Password</label>
+							<input type="password" id="inputPasswordSignUp" class="form-control mb-2" placeholder="Password">
+							<label for="inputPasswordReSignUp" class="sr-only">Confirm Password</label>
+							<input type="password" id="inputPasswordReSignUp" class="form-control mb-2" placeholder="Confirm Password">
+							<label for="inputDateSignUp" class="sr-only">Birthday</label>
+							<input type="date" id="inputDateSignUp" class="form-control mb-2" placeholder="Birthday">
+							<label for="inputAddressSignUp" class="sr-only">Address</label>
+							<input type="text" id="inputAddressSignUp" class="form-control mb-2" placeholder="Address">
+							<label for="inputPhoneSignUp" class="sr-only">Phone</label>
+							<input type="text" id="inputPhoneSignUp" class="form-control mb-2" placeholder="Phone">
+							<p style="text-align: left; color: red;" id="alert-p-2"></p>
+							<button class="btn btn-lg btn-dark btn-block" type="button" id="sign-up-btn">Sign Up</button>
+							<p class="mt-5 text-muted">&copy; ezCourses.com 2021</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Notif Modal -->
+		<div class="modal" tabindex="-1" role="dialog" id="main-notif-modal">
+			<div class="modal-dialog" role="document">
+			  	<div class="modal-content">
+					<div class="modal-body">
+				  		<p id="main-notif-text"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="main-okay-btn">Okay</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+        <!-- Edit a curse -->
+		<div class="container-fluid padding">
+			<div class="row welcome text-center">
+				<div class="col-12">
+					<h1 class="display-4">Edit a course</h1>
+				</div>
+				<hr>
+			</div>
+		</div>
+
+		<!-- Form -->
+		<form action="#" method="GET" class="mb-3" autocomplete="off" name="formEdit" id="form-user">
+			* Required fields
+			<div class="form-group">
+			  <label for="course-id">Course ID *</label>
+			  <input type="number" class="form-control" id="course-id" readonly>
+			</div>
+			<div class="form-group">
+				<label for="course-name">Course Name *</label>
+				<input type="text" class="form-control" id="course-name" placeholder="Enter the name of the course">
+			</div>
+			<div class="form-group">
+				<label for="course-author">Course Author *</label>
+				<input type="text" class="form-control" id="course-author" placeholder="Enter the name of the course author">
+			</div>
+			<div class="form-group">
+				<label for="course-last-mod">Last Modification</label>
+				<input type="date" class="form-control" id="course-last-mod">
+			</div>
+			<div class="form-group">
+				<label for="course-desc">Description</label>
+				<textarea class="form-control" id="course-desc"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="course-img">Cover Image</label>
+				<div class="custom-file">
+					<input type="file" accept="image/*" class="custom-file-input" id="course-img">
+					<label class="custom-file-label" for="course-img">Browse</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="course-price">Price</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+					  <span class="input-group-text">$</span>
+					</div>
+					<input type="number" min="0.01" step="0.01" class="form-control no-arrows" id="course-price" placeholder="e.g. 0.00">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="course-lessons">Number of lessons</label>
+				<input class="form-control" id="course-lessons" placeholder="e.g. 10">
+			</div>
+			<div class="form-group">
+				<label for="course-category">Category</label><br>
+				<select class="form-select w-100" id="course-category">
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="course-lang">Language</label><br>
+				<select class="form-select w-100" id="course-lang">
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="no-of-users">Users</label>
+				<input class="form-control" id="no-of-users" readonly>
+			  </div>
+			  <div class="form-group">
+				<label for="avg-rating">Average rating</label>
+				<input class="form-control" id="avg-rating" readonly>
+			  </div>
+			<div class="form-group">
+				<label for="course-cert">Certified</label><br>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="course-cert" id="course-cert-0" value="0" checked>
+					<label class="form-check-label" for="course-cert-0">No</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="course-cert" id="course-cert-1" value="1">
+					<label class="form-check-label" for="course-cert-1">Yes</label>
+				</div>
+			</div>
+			<div class="btn-toolbar d-flex justify-content-center" role="toolbar">
+				<button type="button" id="submit-btn" class="btn btn-dark m-2">Submit</button>
+				<button type="reset" class="btn btn-default m-2">Reset</button>
+				<button type="button" id="delete-course" class="btn btn-danger m-2">Delete</button>
+			</div>
+		</form>
+
+		<!-- Alert Modal -->
+		<div class="modal" tabindex="-1" role="dialog" id="alert-modal">
+			<div class="modal-dialog" role="document">
+			  	<div class="modal-content">
+					<div class="modal-body">
+				  		<p id="alert-text"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Delete Modal -->
+		<div class="modal" tabindex="-1" role="dialog" id="delete-modal">
+			<div class="modal-dialog" role="document">
+			  	<div class="modal-content">
+					<div class="modal-header">
+				  		<h5 class="modal-title">Hold on!</h5>
+				  		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				  		</button>
+					</div>
+					<div class="modal-body">
+				  		<p>Are you sure you want to delete this course?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" id="yes-delete-course">Yes</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<div class="modal" tabindex="-1" role="dialog" id="deleted-modal">
+			<div class="modal-dialog" role="document">
+			  	<div class="modal-content">
+					<div class="modal-body">
+				  		<p>Course is successfully deleted.</p>
+					</div>
+					<div class="modal-footer">
+						<a href="./courses.html" class="btn btn-secondary">Go back</a>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!--- Footer -->
+		<footer>
+			<div class="container-fluid padding">
+				<div class="row text-center">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-4">
+						<img src="../images/logoW.png">
+						<hr class="light">
+						<p>123-456-7890</p>
+						<p>address@address.com</p>
+						<p>Street 100</p>
+						<p>City, State</p>
+					</div>
+					<div class="col-md-4">
+						<h5>Working hours</h5>
+						<hr class="light">
+						<p>Monday - Firday: 9am - 5pm</p>
+						<p>Saturday - Sunday: Closed</p>
+					</div>
+					<div class="col-md-2">
+					</div>
+					<div class="col-12">
+						<hr class="light-100">
+						<h5>&copy; ezcourses.com</h5>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

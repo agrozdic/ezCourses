@@ -1,0 +1,43 @@
+.welcome hr{
+    border-top: 2px solid #B4B4B4;
+    width: 70%;
+    margin: 0.3rem auto 1rem auto;
+  }
+
+body>form{
+    width: 35%;
+    margin: 0 auto;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgb(52 58 64 / 25%);
+    border-color: rgb(52 58 64 / 25%);
+}
+
+.form-select{
+    line-height: 1.5;
+}
+
+.btn-default:active, .btn-default:focus{
+    box-shadow: 0 0 0 0.2rem rgb(52 58 64 / 25%);
+}
+
+@media (max-width: 992px) {
+    body>form{
+        width: 45%;
+    }
+  }
+  
+@media (max-width: 768px) {
+    body>form{
+        width: 55%;
+    }
+  }
+  
+@media (max-width: 576px) {
+    body>form{
+        width: 65%;
+    }
+
+    
+  }

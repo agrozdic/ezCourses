@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+		<script src="../javascript/courses.js"></script>
+		<script src="../javascript/login.js"></script>
+		<script src="../javascript/search.js"></script>
+		<link rel="stylesheet" href="../styles/main.css">
+		<link rel="stylesheet" href="../styles/courses.css">
+		<title>ezCourses - Courses</title>
+		<link rel="icon" href="../images/icon.png">
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-md sticky-top navbar-dark" id="navbar" style="background-color: #262626;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../index.html">
+					<img id="logo" src="../images/logoW.png">
+				</a>
+				<button class="navbar-toggler" id="togglerButton" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="../index.html">Home</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="./courses.html">Courses</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./users.html">Users</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-3" href="./cart.html">Cart</a>
+						</li>
+						<li class="nav-item" id="log-user">
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Sign In -->
+		<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-center">
+					<div class="container-fluid modal-center">
+						<form class="form-signin" autocomplete="off">
+							<img class="img-fluid mb-4" src="../images/logoB.png">
+							<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+							<label for="inputUserSignIn" class="sr-only">Username</label>
+							<input type="text" id="inputUserSignIn" class="form-control mb-2" placeholder="Username">
+							<label for="inputPasswordSignIn" class="sr-only">Password</label>
+							<input type="password" id="inputPasswordSignIn" class="form-control mb-2" placeholder="Password">
+							<div class="checkbox mb-3">
+								<label>
+									<input type="checkbox" value="remember-me"> Remember me
+								</label>
+							</div>
+							<p style="text-align: left; color: red;" id="alert-p"></p>
+							<button class="btn btn-lg btn-dark btn-block" type="button" id="sing-in-btn">Sign in</button>
+							<p class="mt-5 text-muted">&copy; ezCourses.com 2021</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sign Up -->
+		<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-center">
+					<div class="container-fluid modal-center">
+						<form class="form-signup" autocomplete="off">
+							<img class="img-fluid mb-4" src="../images/logoB.png">
+							<h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+							<label for="inputNameSignUp" class="sr-only">Name</label>
+							<input type="text" id="inputNameSignUp" class="form-control mb-2" placeholder="Name">
+							<label for="inputUserSignUp" class="sr-only">User</label>
+							<input type="text" id="inputUserSignUp" class="form-control mb-2" placeholder="Username">
+							<label for="inputEmail" class="sr-only">Email</label>
+							<input type="email" id="inputEmailSignUp" class="form-control mb-2" placeholder="E-mail">
+							<label for="inputPassword" class="sr-only">Password</label>
+							<input type="password" id="inputPasswordSignUp" class="form-control mb-2" placeholder="Password">
+							<label for="inputPasswordReSignUp" class="sr-only">Confirm Password</label>
+							<input type="password" id="inputPasswordReSignUp" class="form-control mb-2" placeholder="Confirm Password">
+							<label for="inputDateSignUp" class="sr-only">Birthday</label>
+							<input type="date" id="inputDateSignUp" class="form-control mb-2" placeholder="Birthday">
+							<label for="inputAddressSignUp" class="sr-only">Address</label>
+							<input type="text" id="inputAddressSignUp" class="form-control mb-2" placeholder="Address">
+							<label for="inputPhoneSignUp" class="sr-only">Phone</label>
+							<input type="text" id="inputPhoneSignUp" class="form-control mb-2" placeholder="Phone">
+							<p style="text-align: left; color: red;" id="alert-p-2"></p>
+							<button class="btn btn-lg btn-dark btn-block" type="button" id="sign-up-btn">Sign Up</button>
+							<p class="mt-5 text-muted">&copy; ezCourses.com 2021</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Notif Modal -->
+		<div class="modal" tabindex="-1" role="dialog" id="main-notif-modal">
+			<div class="modal-dialog" role="document">
+			  	<div class="modal-content">
+					<div class="modal-body">
+				  		<p id="main-notif-text"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="main-okay-btn">Okay</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+        <!-- All Courses -->
+		<div class="container-fluid padding">
+			<div class="row welcome text-center">
+				<div class="col-12">
+					<h1 class="display-4">All courses</h1>
+				</div>
+				<hr>
+			</div>
+		</div>
+
+		<!-- Filter buttons -->
+		<div class="container-fluid padding" id="filter-buttons">
+			<button class="btn btn-dark filter-button mb-2" id="all" onclick="filter(id)">All</button>
+			<!-- <button class="btn btn-default filter-button mb-2" id="algorithms" onclick="filter(id)">Alogrithms</button>
+			<button class="btn btn-default filter-button mb-2" id="oop" onclick="filter(id)">Object-oriented Programming</button>
+			<button class="btn btn-default filter-button mb-2" id="web" onclick="filter(id)">Web Design</button> -->
+		</div>
+
+		<div class="container-fluid padding">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Search courses" id="search-text">
+				<div class="input-group-append">
+				  	<button class="btn btn-outline-secondary" type="button" id="search">Search</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid padding">
+			<div class="row padding" id="all-courses">
+			
+			<hr class="my-4">	
+			</div>
+		</div>
+
+		<!--- Footer -->
+		<footer>
+			<div class="container-fluid padding">
+				<div class="row text-center">
+					<div class="col-md-2">
+					</div>
+					<div class="col-md-4">
+						<img src="../images/logoW.png">
+						<hr class="light">
+						<p>123-456-7890</p>
+						<p>support@ezcourses.com</p>
+						<p>5759 Saturn St</p>
+						<p>Los Angeles, CA</p>
+					</div>
+					<div class="col-md-4">
+						<h5>More</h5>
+						<hr class="light">
+						<p><a href="#">About Us</a></p>
+						<p><a href="#">Carrers</a></p>
+						<p><a href="#">Terms and Conditions</a></p>
+						<p><a href="#">Help</a></p>
+					</div>
+					<div class="col-md-2">
+					</div>
+					<div class="col-12">
+						<hr class="light-100">
+						<h5>&copy; ezcourses.com</h5>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

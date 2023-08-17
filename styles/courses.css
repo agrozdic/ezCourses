@@ -1,0 +1,30 @@
+.filter-button:active, .filter-button:focus{
+    box-shadow: 0 0 0 0.2rem rgb(52 58 64 / 25%);
+}
+
+mark{
+    background-color: rgb(52, 58, 64);
+    color: white
+}
+
+.input-group{
+    width: 30%;
+}
+
+@media (max-width: 992px) {
+    .input-group{
+        width: 40%;
+    }
+}
+  
+@media (max-width: 768px) {
+    .input-group{
+        width: 60%;
+    }
+}
+  
+@media (max-width: 576px) {
+    .input-group{
+        width: 100%;
+    }
+}
